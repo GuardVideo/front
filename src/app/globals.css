@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+body {
+  color: #ffffff;
+  background-color: #191919;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.btn-fill {
+  @apply px-4 py-2 text-sm font-medium text-white bg-primaryColor rounded-lg hover:bg-primaryColor/90 transition-colors;
+}
+.btn-outline {
+  @apply px-4 py-2 text-sm font-medium text-primaryColor border border-primaryColor rounded-lg hover:bg-primaryColor/10 transition-colors;
+}

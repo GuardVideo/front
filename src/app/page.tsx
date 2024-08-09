@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <div
-        className="flex flex-col bg-no-repeat bg-cover min-h-screen"
+        className="flex flex-col bg-no-repeat bg-cover"
         style={{
           backgroundImage: `url(${heroBG.src})`,
         }}

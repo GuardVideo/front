@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -46,11 +47,66 @@ const poppins = localFont({
     },
   ],
   variable: "--font-poppins",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "GuardVideo Platform",
-  description: "Secure video hosting with advanced encryption and DRM",
+  metadataBase: new URL("https://guardvid.com"),
+  title: "GuardVideo Platform | Secure Video Hosting",
+  description:
+    "GuardVideo offers secure video hosting with advanced encryption, DRM, and content protection features for businesses and content creators.",
+  keywords: [
+    "secure video hosting",
+    "video encryption",
+    "DRM",
+    "content protection",
+    "video platform",
+  ],
+  authors: [{ name: "GuardVideo Team" }],
+  openGraph: {
+    title: "GuardVideo Platform | Secure Video Hosting",
+    description:
+      "Protect your video content with GuardVideo's advanced encryption and DRM solutions.",
+    url: "https://guardvid.com",
+    siteName: "GuardVideo",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "GuardVideo Platform",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GuardVideo Platform | Secure Video Hosting",
+    description:
+      "Protect your video content with GuardVideo's advanced encryption and DRM solutions.",
+    images: ["/logo.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  // verification: {
+  //   google: "YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE",
+  //   yandex: "YOUR_YANDEX_VERIFICATION_CODE",
+  //   bing: "YOUR_BING_VERIFICATION_CODE",
+  // },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#44c09b",
 };
 
 export default function RootLayout({
@@ -61,9 +117,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={poppins.variable}
+      className={`${poppins.variable} scroll-smooth`}
     >
-      <body className="font-poppins">{children}</body>
+      <head>
+        <link
+          rel="shortcut icon"
+          href="/logo.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/logo.png"
+        />
+        <link
+          rel="mask-icon"
+          href="/logo.png"
+        />
+      </head>
+      <body className="font-poppins antialiased">{children}</body>
     </html>
   );
 }

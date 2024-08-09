@@ -1,5 +1,6 @@
 import Header from "@/components/shared/Header";
 import Hero from "@/components/shared/Home/Hero";
+import Services from "@/components/shared/Home/Services";
 import heroBG from "@/public/images/hero-bg.svg";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <Header />
         <Hero />
       </div>
+      <Services />
     </main>
   );
 }

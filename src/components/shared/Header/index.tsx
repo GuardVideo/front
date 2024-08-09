@@ -1,11 +1,14 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const menuItems = ["Home", "Services", "Features", "Pricing", "Contact Us"];
 
   return (
     <header className="py-4">
@@ -22,18 +25,16 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:block">
             <ul className="flex space-x-6">
-              {["Home", "Services", "Features", "Pricing", "Contact Us"].map(
-                (item) => (
-                  <li key={item}>
-                    <Link
-                      href={`/#${item.toLowerCase().replace(" ", "-")}`}
-                      className="text-white/90 hover:text-primaryColor transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                )
-              )}
+              {menuItems.map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`/#${item.toLowerCase().replace(" ", "-")}`}
+                    className="text-white/90 hover:text-primaryColor transition-colors"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -47,6 +48,7 @@ export default function Header() {
           <button
             onClick={toggleMenu}
             className="lg:hidden text-white/90 hover:text-primaryColor"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg
               className="w-6 h-6"
@@ -69,30 +71,37 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-2 py-2 px-4 rounded-xl border border-primaryColor/40 shadow-lg backdrop-blur-lg">
-            <nav>
-              <ul className="space-y-2">
-                {["Home", "Services", "Features", "Pricing", "Contact Us"].map(
-                  (item) => (
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3,type:"just" }}
+              className="lg:hidden mt-2 py-2 px-4 rounded-xl border border-primaryColor/40 shadow-lg backdrop-blur-lg overflow-hidden"
+            >
+              <nav>
+                <ul className="space-y-2">
+                  {menuItems.map((item) => (
                     <li key={item}>
                       <Link
                         href={`/#${item.toLowerCase().replace(" ", "-")}`}
                         className="block py-2 text-white/90 hover:text-primaryColor transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
                       >
                         {item}
                       </Link>
                     </li>
-                  )
-                )}
-              </ul>
-            </nav>
-            <div className="mt-4 space-y-2">
-              <button className="w-full btn-fill">Register Now</button>
-              <button className="w-full btn-outline">Login</button>
-            </div>
-          </div>
-        )}
+                  ))}
+                </ul>
+              </nav>
+              <div className="mt-4 space-y-2">
+                <button className="w-full btn-fill">Register Now</button>
+                <button className="w-full btn-outline">Login</button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

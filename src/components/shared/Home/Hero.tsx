@@ -1,8 +1,11 @@
 import Image from "next/image";
 import heroImage from "@/public/images/hero-image.svg";
+import eduvaluLogo from "@/public/images/logos/eduvalu.png";
+import ednuvaLogo from "@/public/images/logos/ednuva.png";
+
 export default function Hero() {
   return (
-    <section className="py-10">
+    <section>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center">
         <div className="col-span-1 md:col-span-2 flex flex-col gap-6">
           <div>
@@ -32,14 +35,23 @@ export default function Hero() {
           />
         </div>
       </div>
-      {/* <div className="container mx-auto mt-4">
+      <div className="container mx-auto mt-4">
         <p className="text-center mb-4">
           Trusted by teams from leading companies
         </p>
-        <div className="flex justify-center space-x-8">
-          <Image src="/images/company-logo.png" alt="Company" width={100} height={40} />
+        <div className="flex items-center justify-center gap-4 flex-wrap">
+          <Image
+            src={eduvaluLogo}
+            alt="Company"
+            className="h-16 w-28 object-contain"
+          />
+          <Image
+            src={ednuvaLogo}
+            alt="Company"
+            className="h-16 w-28 object-contain"
+          />
         </div>
-      </div> */}
+      </div>
     </section>
   );
 }

@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --primaryColor: #44c09b;
 }
 
 body {
@@ -22,4 +23,19 @@ body {
 }
 .btn-outline {
   @apply px-4 py-2 text-sm font-medium text-primaryColor border border-primaryColor rounded-lg hover:bg-primaryColor/10 transition-colors;
+}
+
+.card-gradient {
+  border: 1px solid var(--primaryColor);
+  background: linear-gradient(
+    180deg,
+    rgba(68, 192, 155, 0.2) 0%,
+    rgba(68, 192, 155, 0) 100%
+  );
+  backdrop-filter: blur(6px);
+}
+
+.icon-gradient {
+  border: 1.607px solid #44c09b;
+  background: linear-gradient(180deg, #44c09b 0%, rgba(18, 13, 46, 0) 65.8%);
 }

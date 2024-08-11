@@ -21,8 +21,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   icon: Icon,
 }) => (
-  <div className="h-full card-gradient rounded-2xl p-6 flex flex-col items-center">
-    <div className="p-5 icon-gradient rounded-full mb-5">
+  <div className="h-full card-gradient rounded-2xl p-6 flex flex-col items-center service-card">
+    <div className="p-5 icon-gradient rounded-full mb-5 service-card-icon">
       <Icon
         size={32}
         color="#fff"
@@ -77,19 +77,20 @@ const services = [
 ];
 
 const Services: React.FC = () => (
-  <div className="container mx-auto py-16 overflow-y-clip">
+  <div>
     <MainTitle
       title="Services"
       subtitle="Cutting-Edge Features to Protect and Enhance Your Video Content"
     />
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {services.map((service, index) => (
-        <ServiceCard
-          key={index}
-          {...service}
-        />
-      ))}
+    <div className="container mx-auto overflow-y-clip">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {services.map((service, index) => (
+          <ServiceCard
+            key={index}
+            {...service}
+          />
+        ))}
+      </div>
     </div>
   </div>
 );

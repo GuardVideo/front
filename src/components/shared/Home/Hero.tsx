@@ -5,7 +5,7 @@ import ednuvaLogo from "@/public/images/logos/ednuva.png";
 
 export default function Hero() {
   return (
-    <section>
+    <section className="py-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center">
         <div className="col-span-1 md:col-span-2 flex flex-col gap-6">
           <div>
@@ -35,7 +35,7 @@ export default function Hero() {
           />
         </div>
       </div>
-      <div className="container mx-auto mt-4">
+      <div className="container mx-auto">
         <p className="text-center mb-4">
           Trusted by teams from leading companies
         </p>

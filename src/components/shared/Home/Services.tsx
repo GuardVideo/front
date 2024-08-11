@@ -77,12 +77,12 @@ const services = [
 ];
 
 const Services: React.FC = () => (
-  <div>
+  <section className="py-10">
     <MainTitle
       title="Services"
       subtitle="Cutting-Edge Features to Protect and Enhance Your Video Content"
     />
-    <div className="container mx-auto overflow-y-clip">
+    <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {services.map((service, index) => (
           <ServiceCard
@@ -92,7 +92,7 @@ const Services: React.FC = () => (
         ))}
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default Services;

@@ -57,7 +57,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 );
 
 const Features: React.FC = () => (
-  <div>
+  <section className="py-10">
     <MainTitle
       title="Features"
       subtitle="Cutting-Edge Features to Protect and Enhance Your Video Content"
@@ -137,7 +137,7 @@ const Features: React.FC = () => (
         />
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default Features;

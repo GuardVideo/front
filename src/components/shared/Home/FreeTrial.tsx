@@ -45,10 +45,9 @@ const FreeTrial = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex space-x-4">
-              <button className="btn-fill">Start Free Trial</button>
-              <button className="btn-outline">Learn More</button>
-            </div>
+            <button className="btn-outline !text-white !border-white">
+              Start Free Trial
+            </button>
           </div>
           <div className="w-full">
             <div className="bg-[#191919] p-8 rounded-3xl shadow-2xl">
@@ -79,6 +78,9 @@ const FreeTrial = () => {
                   </div>
                 ))}
               </div>
+              <button className="mt-4 w-full btn-outline !text-white !border-white">
+                Start Free Trial
+              </button>
             </div>
           </div>
         </div>
